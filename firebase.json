@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/rehabpathcenters",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

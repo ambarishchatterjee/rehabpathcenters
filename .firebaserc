@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "rehabpath-d8cef": {
+      "hosting": {
+        "rehabpathcenters": [
+          "rehabpath-d8cef"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "rehabpath-d8cef"
+  }
+}
