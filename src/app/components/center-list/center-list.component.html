@@ -1,25 +1,31 @@
-<mat-toolbar color="accent" class="app-header">
-    <span>Rehab Path Centers</span>
-</mat-toolbar>
-
-
-<mat-list>
-    <div mat-subheader>Featured Treatment Providers</div>
-    <mat-list-item *ngFor="let center of (centers | 
-    slice: lowValue : highValue)">
-    <a href="tel:{{center.phone}}">
-        <mat-icon color="primary" >phone</mat-icon>
-    </a>
-      <mat-icon color="primary" mat-list-icon>home</mat-icon>
-      <div mat-line>{{center.title}}</div>
-      <div mat-line> {{center.phone}} </div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-</mat-list>
-
-<div *ngIf="centers == null">
-    <mat-spinner></mat-spinner>
+<div *ngIf="centers == null;else pageview" class="wrapper">
+    <mat-spinner class="inner"></mat-spinner>
 </div>
+
+<ng-template #pageview>
+    <mat-toolbar color="accent" class="app-header">
+        <span>Rehab Path Centers</span>
+    </mat-toolbar>
+    
+    
+    <mat-list>
+        <div mat-subheader>Featured Treatment Providers</div>
+        <mat-list-item *ngFor="let center of (centers | 
+        slice: lowValue : highValue)">
+        <a href="tel:{{center.phone}}">
+            <mat-icon color="primary" >phone</mat-icon>
+        </a>
+          <mat-icon color="primary" mat-list-icon>home</mat-icon>
+          <div mat-line>{{center.title}}</div>
+          <div mat-line> {{center.phone}} </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+    </mat-list>
+        
+</ng-template>
+
+
+
 <div *ngIf="centers !== null">
     <mat-paginator color="primary" [length]="centers.length" [pageSize]="pageSize" 
     (page)="pageEvent = getPaginatorData($event)">
